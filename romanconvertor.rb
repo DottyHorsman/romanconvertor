@@ -18,13 +18,11 @@ def fromRoman(romanNumber)
         "D" => 500, "C" => 100, 
         "L" => 50, "X" => 10, 
         "V" => 5, "IV" => 4, "I" => 1];
-    if romanNumber =~ /\A[IVXLCDM]*\z/
-        raise TypeError
-    end #not else??
-        romanNumber.chars do |x, y|
-            converted = converted + roman_nums[y]
-        end;
-    converted;
+    if romanNumber[0] =~ /\A[IVXLCDM]*\z/
+        print("na");
+    else
+        raise TypeError;
+    end;
 end;
 
 def toRoman(arabicNumber)
@@ -35,7 +33,7 @@ def toRoman(arabicNumber)
         "L" => 50, "X" => 10, 
         "V" => 5, "IV" => 4, "I" => 1];
     if(arabicNumber < 1 || arabicNumber > 3999)
-        raise RangeError
+        raise RangeError;
     end; #not else?
         roman_nums.each do |r, a|
             converted << a * (arabicNumber / r); 
